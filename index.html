@@ -8,8 +8,14 @@
   <script>
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
-      if (xhr.readystate === 4) {
-        document.getElementBy('ajax').innerHTML = xhr.responsetext;
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+        document.getElementBy('ajax').innerHTML = xhr.responseText;
+        } else if (xhr.status === 404){
+
+        } else if (xhr.status === 500){
+
+        }
       }
     };
     xhr.open('GET', 'sidebar.html');
